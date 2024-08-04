@@ -6,12 +6,6 @@ Dev tools for Recharts library
 - `npm run start` runs babel in watch mode and starts Storybook
 - `npm run build` build and package your addon code
 
-### Switch from TypeScript to JavaScript
-
-Don't want to use TypeScript? We offer a handy eject command: `npm run eject-ts`
-
-This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
-
 ## What's included?
 
 ![Demo](https://user-images.githubusercontent.com/42671/107857205-e7044380-6dfa-11eb-8718-ad02e3ba1a3f.gif)
