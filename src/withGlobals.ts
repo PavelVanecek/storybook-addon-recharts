@@ -16,7 +16,23 @@ export const withGlobals = (
     // For example, to manipulate the contents of the preview
     const selector = "#storybook-root";
 
-    displayToolState(selector);
+    if (myAddon) {
+      displayToolState(selector);
+    }
+
+    return () => {
+      // Clean up the side effect here
+      // For example, to remove the injected content
+      const rootElements = document.querySelectorAll(selector);
+      rootElements.forEach((rootElement) => {
+        const preElement = rootElement.querySelector<HTMLPreElement>(
+          `${selector} pre`
+        );
+        if (preElement) {
+          preElement.remove();
+        }
+      });
+    }
   }, [myAddon]);
 
   return StoryFn();
@@ -38,7 +54,7 @@ function displayToolState(selector: string) {
       preElement.style.setProperty("border-radius", "3px");
       preElement.style.setProperty("max-width", "600px");
       preElement.style.setProperty("overflow", "scroll");
-      // rootElement.appendChild(preElement);
+      rootElement.appendChild(preElement);
     }
 
     preElement.innerText = `This snippet is injected by the withGlobals decorator.
