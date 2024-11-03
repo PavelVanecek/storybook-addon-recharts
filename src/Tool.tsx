@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useEffect } from "react";
 import { useGlobals, useStorybookApi } from "@storybook/manager-api";
-import { Icons, IconButton } from "@storybook/components";
+import { IconButton } from "@storybook/components";
+import { EyeIcon } from "@storybook/icons";
 import { ADDON_ID, PARAM_KEY, TOOL_ID } from "./constants";
 
 export const Tool = memo(function MyAddonSelector() {
@@ -29,10 +30,10 @@ export const Tool = memo(function MyAddonSelector() {
     <IconButton
       key={TOOL_ID}
       active={isActive}
-      title="Enable my addon"
+      title="Enable Recharts hook inspector"
       onClick={toggleMyTool}
     >
-      <Icons icon="lightning" />
+      <EyeIcon />
     </IconButton>
   );
 });
